@@ -12,7 +12,6 @@ function LogIn(){
         const form = event.target
         const emailInput = DOMPurify.sanitize(form.elements.namedItem("email").value)
         const passlInput = DOMPurify.sanitize(form.elements.namedItem("password").value)
-        console.log(emailInput, passlInput)
 
         login(emailInput, passlInput)
             .then((result) => {
@@ -23,17 +22,12 @@ function LogIn(){
                       // https://firebase.google.com/docs/reference/js/auth.user
                       const uid = user.uid;
                       sessionStorage.setItem("@AuthFirebase:user", uid)
-                      console.log(uid)
                       // ...
                     } else {
                       // User is signed out
                       // ...
                     }
-                  });
-                console.log(result)
-                  
-                
-                
+                  });       
                 window.location.assign("/admin")
                 
             })
