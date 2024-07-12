@@ -13,7 +13,7 @@ html{
         font-family: "Poppins";
         color: ${props => props.theme.color.black};
         text-align: center;
-        transition: all .5s;
+        transition: all .3s;
     }
     body{
         background-color: ${props => props.theme.color.white};

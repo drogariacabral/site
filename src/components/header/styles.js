@@ -24,7 +24,8 @@ export const Container = styled.div`
 
     & a{
         font-weight: 500;
-        font-family: "Montserrat"
+        font-family: "Montserrat";
+        text-decoration: none;
     }
 
     & img{
