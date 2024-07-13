@@ -7,9 +7,12 @@ import { signOut } from "firebase/auth";
 import Button from "../button";
 import siteLogo from "../../assets/images/site-logo-dc.png";
 import MobileMenu from "../mobile-menu";
+import { useLocation } from 'react-router-dom';
 
 function SiteHeader() {
   const [userLogged, setUserLogged] = useState(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -23,7 +26,7 @@ function SiteHeader() {
     return () => unsubscribe();
   }, []);
 
-  if (userLogged === null || userLogged === "") {
+  if (userLogged === null || userLogged === "" || location.pathname === "/") {
     return (
       <HeaderPrimary>
         <div className="header-boxed header-flex-container">
@@ -39,7 +42,7 @@ function SiteHeader() {
   } else if (userLogged) {
     return (
       <HeaderAdmin>
-        <div className="header-boxed header-flex-container">
+        <div className="header-boxed header-flex-container header-flex-container-2">
           <Container>
             <img src={siteLogo} />
           </Container>

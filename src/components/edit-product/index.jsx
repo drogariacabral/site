@@ -80,7 +80,7 @@ function EditProductForm({ product, onSave, onCancel }) {
                   Cancelar
               </DeleteButton>
           </FormContainer>
-      </Container>
+        </Container>
   );
 }
 

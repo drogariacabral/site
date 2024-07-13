@@ -168,6 +168,10 @@ html{
         .header-flex-container{
             flex-direction: row;
             gap: 10px;
+            justify-content: center;
+        }
+        .header-flex-container-2{
+            justify-content: space-between !important;
         }
         .section-boxed{
             padding: 50px 20px;
