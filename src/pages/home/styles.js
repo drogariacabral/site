@@ -11,6 +11,10 @@ export const Container = styled.div `
 
 export const ContainerThin = styled.div`
     margin: 0;
+
+    @media (max-width: 767px) {
+        max-width: 220px;
+    }
 `
 
 export const Section = styled.div`
@@ -56,11 +60,15 @@ export const HeroText = styled.p `
     color: ${props => props.theme.color.white};
 `
 
-export const HeroButton = styled.button`
+export const HeroButton = styled.a`
     background-color: ${props => props.theme.color.green.primary};
     color: ${props => props.theme.color.white};
     padding: 12px 50px;
     font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    border-radius: 100px;
 
     -webkit-box-shadow: 0px 0px 36px -10px rgba(240, 240, 240, .4);
     -moz-box-shadow: 0px 0px 36px -10px rgba(240, 240, 240, .4);
@@ -77,11 +85,15 @@ export const HeroButton = styled.button`
     }
 `
 
-export const HomeButton = styled.button`
+export const HomeButton = styled.a`
     background-color: ${props => props.theme.color.green.primary};
     color: ${props => props.theme.color.white};
     padding: 12px 50px;
     font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    border-radius: 100px;
 
     -webkit-box-shadow: 0px 0px 36px -10px rgba(240, 240, 240, .4);
     -moz-box-shadow: 0px 0px 36px -10px rgba(240, 240, 240, .4);
@@ -109,4 +121,8 @@ export const ImgTitle = styled.p`
     font-size: 20px;
     font-weight: 700;
     color: ${props => props.theme.color.text};
+
+    @media (max-width: 767px){
+        font-size: 18px;
+    }
 `

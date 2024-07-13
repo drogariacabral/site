@@ -1,4 +1,4 @@
-import { HeaderPrimary, Container } from "./styles";
+import { HeaderPrimary, Container, HeaderAdmin } from "./styles";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../services/firebase_config";
@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
 import Button from "../button";
 import siteLogo from "../../assets/images/site-logo-dc.png";
+import MobileMenu from "../mobile-menu";
 
 function SiteHeader() {
   const [userLogged, setUserLogged] = useState(null);
@@ -37,19 +38,19 @@ function SiteHeader() {
     );
   } else if (userLogged) {
     return (
-      <HeaderPrimary>
+      <HeaderAdmin>
         <div className="header-boxed header-flex-container">
           <Container>
             <img src={siteLogo} />
           </Container>
-          <Container>
+          <Container className="header-flex-container mobile-hidden">
             <Link to="/admin">Admin</Link>
-            <Link to="/admin/add">Add</Link>
-            <Link to="/admin/product">Produtos</Link>
+            <Link to="/admin/add">Adicionar</Link>
             <button onClick={() => {signOut(auth)}}>Sair</button>
           </Container>
+          <MobileMenu />
         </div>
-      </HeaderPrimary>
+      </HeaderAdmin>
     );
   }
 }

@@ -57,7 +57,7 @@ html{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
-        justify-content: center;
+        justify-items: center;
         align-items: center;
     }
     .w-100{
@@ -158,20 +158,22 @@ html{
         font-weight: 700;
         border-radius: 100px;
     }
-
+    a{
+        text-decoration: none;
+    }
     @media (max-width: 767px){
         .header-boxed{
             padding: 20px;
         }
         .header-flex-container{
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
         }
         .section-boxed{
             padding: 50px 20px;
         }
         .section-boxed-thin{
-            padding: 25px 20px;
+            padding: 50px 20px;
         }
         .flex-children-60{
         width: 100%;

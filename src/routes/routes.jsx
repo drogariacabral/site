@@ -3,7 +3,6 @@ import LogIn from "../pages/login";
 import Home from "../pages/home";
 import Admin from "../pages/admin";
 import AddProduct from "../pages/add";
-import ProductAdmin from "../pages/product";
 import SiteHeader from "../components/header";
 
 function AppRoutes(){
@@ -17,8 +16,6 @@ function AppRoutes(){
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/admin/add" element={<AddProduct />} />
-                <Route path="/admin/product" element={<ProductAdmin />} />
-                
             </Routes>
         </BrowserRouter>
     )

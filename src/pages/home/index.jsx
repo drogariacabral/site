@@ -14,7 +14,7 @@ import conveniencia from "../../assets/images/chocolate.svg";
 import higienePessoal from "../../assets/images/higiene-pessoal.svg";
 import vitamina from "../../assets/images/vitamina-d.svg";
 import suplemento from "../../assets/images/suplementos.svg";
-import SiteHeader from "../../components/header";
+import WhatsAppButton from "../../components/whatsapp";
 
 
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
                             <HeroTitle>Peça pelo Whatsapp</HeroTitle>
                             <HeroText className="mb-10">Na Drogaria Cabral, oferecemos uma ampla variedade de medicamentos, produtos de saúde e bem-estar, com atendimento personalizado e profissional.</HeroText>
                             <HeroText className="mb-30" style={{fontWeight: 800}}>Precisa de algo? Faça seu pedido online agora e receba em casa!</HeroText>      
-                            <HeroButton>Fazer pedido</HeroButton>                 
+                            <HeroButton href="https://api.whatsapp.com/send/?phone=5519996925463" target="_blank">Fazer pedido</HeroButton>                 
                         </Container>
                        
 
@@ -63,13 +63,13 @@ function Home() {
             <SectionAlternative>
                 <div className="section-boxed flex-container">
                     <h2 className="color-w mb-0">Formas de pagamento</h2>
-                    <img src={formasPag} style={{maxWidth: "100%"}}/>
+                    <img src={formasPag} style={{maxWidth: "80%"}} width={"450px"}/>
                     <p className="color-w">Aceitamos PIX, Cartão de Crédito à vista ou parcelado*, Cartão de Débito ou Dinheiro.</p>
-                    <HomeButton>Fazer pedido</HomeButton>
+                    <HomeButton href="https://api.whatsapp.com/send/?phone=5519996925463" target="_blank">Fazer pedido</HomeButton>
                 </div>
             </SectionAlternative>
             <Section>
-                <div className="section-boxed-thin grid-container-3 w-65">
+                <div className="section-boxed grid-container-3 w-65">
                     <div className="flex-container gap-10">
                         <ImgBackground className="flex-container"><img style={{padding: "10px"}} src={medicina} width={100}/></ImgBackground>
                         <ImgTitle>Medicamentos</ImgTitle>
@@ -99,7 +99,7 @@ function Home() {
             <SectionAlternative>
                 <div className="section-boxed flex-container w-65">
                     <h2 className="color-w mb-0">Nossa localização</h2>
-                    <Container className="m-0">
+                    <Container style={{margin: "0"}}>
                         <p className="color-w">Rua Antônio Alves de Campos, 265</p>
                         <p className="color-w">Penha do Rio do Peixe - Itapira</p>
                     </Container>
@@ -108,7 +108,7 @@ function Home() {
                 </div>
                 
             </SectionAlternative>
-            
+            <WhatsAppButton />
         </>
     )
 }

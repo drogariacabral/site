@@ -87,36 +87,39 @@ function AddProduct() {
 
     if (userLogged) {
         return (
-            <>
-                <div className="section-boxed-thin w-100 flex-container">
-                    <h1>Adicionar produto</h1>
-                    <FormContainer onSubmit={handleSubmit}>
-                        <FormInput
-                            type="text"
-                            placeholder="Produto"
-                            id="product_name"
-                            value={productName}
-                            onChange={(e) => setProductName(e.target.value)}
-                            required
-                        />
-                        <FormInput
-                            type="number"
-                            placeholder="Preço"
-                            id="product_price"
-                            value={productPrice}
-                            onChange={(e) => setProductPrice(e.target.value)}
-                            required
-                        />
-                        <FormInput
-                            type="file"
-                            name="image"
-                            required
-                        />
-                        <FormButton type="submit">Adicionar</FormButton>
-                        {isUploading && <p>Progresso: {progress}%</p>}
-                    </FormContainer>
-                </div>
-            </>
+          <>
+            <div className="section-boxed w-100 flex-container">
+              <h2>Adicionar produto</h2>
+              <FormContainer onSubmit={handleSubmit}>
+                
+                <FormInput
+                  type="text"
+                  placeholder="Produto"
+                  id="product_name"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  required
+                />
+                
+                
+                <FormInput
+                  type="number"
+                  placeholder="Preço"
+                  id="product_price"
+                  value={productPrice}
+                  onChange={(e) => setProductPrice(e.target.value)}
+                  required
+                />
+                
+                
+                
+                <FormInput type="file" name="image" required />
+                
+                <FormButton type="submit">Adicionar</FormButton>
+                {isUploading && <p>Progresso: {progress}%</p>}
+              </FormContainer>
+            </div>
+          </>
         );
     } else if (userLogged === "") {
         window.location.assign("/login");
