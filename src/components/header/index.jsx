@@ -47,9 +47,9 @@ function SiteHeader() {
             <img src={siteLogo} />
           </Container>
           <Container className="header-flex-container mobile-hidden">
-            <Link to="/admin">Admin</Link>
-            <Link to="/admin/add">Adicionar</Link>
-            <button onClick={() => {signOut(auth)}}>Sair</button>
+            <Link className="mobile-hidden" to="/admin">Admin</Link>
+            <Link className="mobile-hidden" to="/admin/add">Adicionar</Link>
+            <button className="mobile-hidden" onClick={() => {signOut(auth)}}>Sair</button>
           </Container>
           <MobileMenu />
         </div>
