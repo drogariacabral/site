@@ -28,16 +28,6 @@ export const MenuContent = styled.div`
     border-radius: 0px 0px 5px 5px;
     overflow: hidden;
 
-    & ul{
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    & li{
-        
-    }
-
     & a{
         display: block;
         padding: 15px;

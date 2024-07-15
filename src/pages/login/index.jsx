@@ -1,9 +1,7 @@
 
-import { login } from "../../services/auth_config";
+import { login } from "../../hooks/auth";
 import DOMPurify from "dompurify";
 import { FormContainer, FormInput, FormButton } from "./styles";
-import { onAuthStateChanged } from "firebase/auth/web-extension";
-import { auth } from "../../services/firebase_config";
 
 function LogIn(){
 
@@ -14,26 +12,7 @@ function LogIn(){
         const passlInput = DOMPurify.sanitize(form.elements.namedItem("password").value)
 
         login(emailInput, passlInput)
-            .then((result) => {
-                
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                      // User is signed in, see docs for a list of available properties
-                      // https://firebase.google.com/docs/reference/js/auth.user
-                      const uid = user.uid;
-                      sessionStorage.setItem("@AuthFirebase:user", uid)
-                      // ...
-                    } else {
-                      // User is signed out
-                      // ...
-                    }
-                  });       
-                window.location.assign("/admin")
-                
-            })
-            .catch((err) => {
-                alert(err)
-            })
+           
     }
 
     return(

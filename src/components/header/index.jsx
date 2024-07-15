@@ -1,13 +1,11 @@
 import { HeaderPrimary, Container, HeaderAdmin } from "./styles";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../services/firebase_config";
-import { onAuthStateChanged } from "firebase/auth";
-import { signOut } from "firebase/auth";
 import Button from "../button";
 import siteLogo from "../../assets/images/site-logo-dc.png";
 import MobileMenu from "../mobile-menu";
 import { useLocation } from 'react-router-dom';
+import { logOut, verifyLogin } from "../../hooks/auth";
 
 function SiteHeader() {
   const [userLogged, setUserLogged] = useState(null);
@@ -15,15 +13,7 @@ function SiteHeader() {
   const location = useLocation();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserLogged(user.uid);
-      } else {
-        setUserLogged("");
-      }
-    });
-
-    return () => unsubscribe();
+    verifyLogin(setUserLogged)
   }, []);
 
   if (userLogged === null || userLogged === "" || location.pathname === "/") {
@@ -44,12 +34,11 @@ function SiteHeader() {
       <HeaderAdmin>
         <div className="header-boxed header-flex-container header-flex-container-2">
           <Container>
-            <img src={siteLogo} />
+            <a href="/admin"><img src={siteLogo} /></a>
+            
           </Container>
           <Container className="header-flex-container mobile-hidden">
-            <Link className="mobile-hidden" to="/admin">Admin</Link>
-            <Link className="mobile-hidden" to="/admin/add">Adicionar</Link>
-            <button className="mobile-hidden" onClick={() => {signOut(auth)}}>Sair</button>
+            <button className="mobile-hidden" onClick={() => logOut()}>Sair</button>
           </Container>
           <MobileMenu />
         </div>

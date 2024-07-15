@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LogIn from "../pages/login";
 import Home from "../pages/home";
 import Admin from "../pages/admin";
-import AddProduct from "../pages/add";
 import SiteHeader from "../components/header";
 
 function AppRoutes(){
@@ -15,7 +14,6 @@ function AppRoutes(){
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/add" element={<AddProduct />} />
             </Routes>
         </BrowserRouter>
     )

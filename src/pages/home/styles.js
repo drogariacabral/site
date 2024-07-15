@@ -126,3 +126,43 @@ export const ImgTitle = styled.p`
         font-size: 18px;
     }
 `
+
+export const ProductContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    border: 2px solid ${props => props.theme.color.green.primary};
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+`
+
+export const ProductName = styled.h3`
+    color: ${props => props.theme.color.black};
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Poppins";
+
+    @media (max-width: 767px){
+        font-size: 16px;
+    }
+`
+
+export const ProductPrice = styled.p`
+    color: ${props => props.theme.color.black};
+    font-size: 18px;
+    font-weight: 400;
+
+    @media (max-width: 767px){
+        font-size: 16px;
+    }
+`
+
+export const BuyButton = styled.button`
+    background-color: ${props => props.theme.color.green.primary};
+    color: ${props => props.theme.color.white};
+    padding: 8px 24px;
+`

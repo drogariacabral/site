@@ -20,11 +20,9 @@ function MobileMenu() {
       </MenuButton>
       {isOpen && (
         <MenuContent className="menu-content">
-          <ul>
-            <li><Link to="/admin">Admin</Link></li>
-            <li><Link to="/admin/add">Adicionar</Link></li>
+          
             <button onClick={() => {signOut(auth)}}>Sair</button>
-          </ul>
+          
         </MenuContent>
       )}
     </MobileMenuContainer>
