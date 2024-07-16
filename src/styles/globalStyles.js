@@ -140,7 +140,7 @@ html{
         font-family: "Montserrat";
         font-size: 45px;
         font-weight: 900;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
     h3{
         font-family: "Poppins";

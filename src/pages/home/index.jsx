@@ -15,7 +15,7 @@ import {
     ProductContainer,
     ProductName,
     ProductPrice,
-    BuyButton
+    BuyButton,
 } from "./styles";
 import heroImage from "../../assets/images/banner1.jpg";
 import { FaWhatsapp } from "react-icons/fa";
@@ -121,8 +121,8 @@ function Home() {
             </SectionAlternative>
             <Section>
                 <div className="section-boxed flex-container">
-                    <h2>Produtos</h2>
-                    <div className="grid-container-3 w-65 gap-50">
+                    <h2 className="color-r">Produtos</h2>
+                    <div className="grid-container-3">
                         {products.map((product) => (
                             <ProductContainer key={product.id}>
                                 {product.imageUrl && (
@@ -136,17 +136,19 @@ function Home() {
                                     />
                                 )}
                                 <div>
-                                <ProductName>{product.name}</ProductName>
-                                <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
+                                    <ProductName>{product.name}</ProductName>
+                                    <ProductPrice>
+                                        {formatCurrency(product.price)}
+                                    </ProductPrice>
                                 </div>
-                                
-                                <BuyButton>Comprar</BuyButton>
+
+                                <BuyButton href="https://api.whatsapp.com/send/?phone=5519996925463" target="_blank">Comprar</BuyButton>
                             </ProductContainer>
                         ))}
                     </div>
                 </div>
             </Section>
-            <Section>
+            <SectionAlternative>
                 <div className="section-boxed grid-container-3 w-65">
                     <div className="flex-container gap-10">
                         <ImgBackground className="flex-container">
@@ -209,15 +211,15 @@ function Home() {
                         <ImgTitle>Suplementos</ImgTitle>
                     </div>
                 </div>
-            </Section>
-            <SectionAlternative>
+            </SectionAlternative>
+            <Section>
                 <div className="section-boxed flex-container w-65">
-                    <h2 className="color-w mb-0">Nossa localização</h2>
+                    <h2 className="mb-0 color-r">Nossa localização</h2>
                     <Container style={{ margin: "0" }}>
-                        <p className="color-w">
+                        <p>
                             Rua Antônio Alves de Campos, 265
                         </p>
-                        <p className="color-w">
+                        <p>
                             Penha do Rio do Peixe - Itapira
                         </p>
                     </Container>
@@ -232,7 +234,7 @@ function Home() {
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
-            </SectionAlternative>
+            </Section>
             <WhatsAppButton />
         </>
     );

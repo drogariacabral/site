@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { db, storage } from "../../services/firebase_config";
-import { doc, deleteDoc } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
-import { EditButton, ProductName, ProductPrice } from "./styles";
+import {
+    EditButton,
+    ProductName,
+    ProductPrice,
+    ProductContainer,
+} from "./styles";
 import EditProductForm from "../../components/edit-product";
 import { verifyLogin } from "../../hooks/auth";
 import { fetchProducts } from "../../hooks/fetchProducts";
@@ -14,27 +16,8 @@ function Admin() {
     const [editingProduct, setEditingProduct] = useState(null);
 
     useEffect(() => {
-        verifyLogin(setUserLogged, fetchProducts);
+        verifyLogin(setUserLogged, () => fetchProducts(setProducts));
     }, []);
-
-    fetchProducts(setProducts);
-
-    // const handleDelete = async (id, imageUrl) => {
-    //     try {
-    //         await deleteDoc(doc(db, "produtos", id));
-
-    //         if (imageUrl) {
-    //             const storageRef = ref(storage, imageUrl);
-    //             console.log(storageRef);
-    //             await deleteObject(storageRef);
-    //         }
-
-    //         setProducts(products.filter((product) => product.id !== id));
-    //         alert("Produto deletado com sucesso!");
-    //     } catch (error) {
-    //         console.error("Erro ao deletar produto: ", error);
-    //     }
-    // };
 
     const handleEdit = (product) => {
         setEditingProduct(product);
@@ -42,7 +25,7 @@ function Admin() {
 
     const handleSave = () => {
         setEditingProduct(null);
-        fetchProducts();
+        fetchProducts(setProducts);
     };
 
     const handleCancel = () => {
@@ -65,9 +48,9 @@ function Admin() {
                             onCancel={handleCancel}
                         />
                     ) : (
-                        <div className="grid-container-3 w-65 gap-50">
+                        <div className="grid-container-3">
                             {products.map((product) => (
-                                <div key={product.id}>
+                                <ProductContainer key={product.id}>
                                     {product.imageUrl && (
                                         <img
                                             src={product.imageUrl}
@@ -78,16 +61,22 @@ function Admin() {
                                             }}
                                         />
                                     )}
-                                    <ProductName>{product.name}</ProductName>
-                                    <ProductPrice>Preço: {formatCurrency(product.price)}</ProductPrice>
-                                    <br />
+                                    <div>
+                                        <ProductName>
+                                            {product.name}
+                                        </ProductName>
+                                        <ProductPrice>
+                                            Preço:{" "}
+                                            {formatCurrency(product.price)}
+                                        </ProductPrice>
+                                    </div>
                                     <EditButton
                                         className="mb-10"
                                         onClick={() => handleEdit(product)}
                                     >
                                         Editar
                                     </EditButton>
-                                </div>
+                                </ProductContainer>
                             ))}
                         </div>
                     )}

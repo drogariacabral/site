@@ -41,6 +41,23 @@ export const EditButton = styled.button`
     }
 `
 
+export const ProductContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    /* border: 2px solid ${(props) => props.theme.color.green.primary}; */
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 35px -15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 35px -15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 35px -15px rgba(0, 0, 0, 0.15);
+`;
+
 export const ProductName = styled.h3`
     color: ${props => props.theme.color.black};
     font-size: 18px;
