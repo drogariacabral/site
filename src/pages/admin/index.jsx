@@ -48,7 +48,7 @@ function Admin() {
                             onCancel={handleCancel}
                         />
                     ) : (
-                        <div className="grid-container-3">
+                        <div className="grid-container-3 w-80">
                             {products.map((product) => (
                                 <ProductContainer key={product.id}>
                                     {product.imageUrl && (

@@ -122,7 +122,7 @@ function Home() {
             <Section>
                 <div className="section-boxed flex-container">
                     <h2 className="color-r">Produtos</h2>
-                    <div className="grid-container-3">
+                    <div className="grid-container-3 w-80">
                         {products.map((product) => (
                             <ProductContainer key={product.id}>
                                 {product.imageUrl && (

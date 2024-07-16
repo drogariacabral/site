@@ -199,6 +199,9 @@ html{
         p{  
             font-size: 16px;
         }
+        .w-80{
+            width: 90%;
+        }
         .w-65, .w-60{
             width: 100%;
         }
