@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { doc, updateDoc } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
 import { db, storage } from '../../services/firebase_config';
 import { Container, DeleteButton, EditButton, FormContainer, FormInput } from './styles';
 
@@ -18,6 +18,8 @@ function EditProductForm({ product, onSave, onCancel }) {
     let imageUrl = product.imageUrl;
 
     if (imageFile) {
+      const storageRef = ref(storage, product.imageUrl)
+      await deleteObject(storageRef)
       setUploading(true);
       const imageRef = ref(storage, `products/${imageFile.name}`);
       const uploadTask = uploadBytesResumable(imageRef, imageFile);

@@ -174,7 +174,7 @@ export const BuyButton = styled.a`
     background-color: ${(props) => props.theme.color.green.primary};
     color: ${(props) => props.theme.color.white};
     padding: 8px 24px;
-    border-radius: 15px;
+    border-radius: 20px;
     font-weight: 700;
     font-family: "Poppins";
     text-transform: uppercase;
